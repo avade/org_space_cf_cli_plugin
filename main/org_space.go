@@ -38,11 +38,7 @@ func (c *OrgSpace) Run(cliConnection plugin.CliConnection, args []string) {
 
 	orgName := args[1]
 	spaceName := args[2]
-	_, err := cliConnection.CliCommand("target", "-o", orgName)
-	if err != nil {
-		println(err.Error())
-	}
-
+	cliConnection.CliCommand("target", "-o", orgName)
 	cliConnection.CliCommand("create-org", orgName)
 	cliConnection.CliCommand("target", "-o", orgName)
 	cliConnection.CliCommand("target", "-o", orgName, "-s", spaceName)
