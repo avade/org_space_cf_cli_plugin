@@ -38,12 +38,12 @@ func (c *OrgSpace) Run(cliConnection plugin.CliConnection, args []string) {
 
 	orgName := args[1]
 	spaceName := args[2]
-	cliConnection.CliCommand("target", "-o", orgName)
-	cliConnection.CliCommand("create-org", orgName)
-	cliConnection.CliCommand("target", "-o", orgName)
-	cliConnection.CliCommand("target", "-o", orgName, "-s", spaceName)
-	cliConnection.CliCommand("create-space", spaceName, "-o", orgName)
-	cliConnection.CliCommand("target", "-o", orgName, "-s", spaceName)
+	cliConnection.CliCommandWithoutTerminalOutput("target", "-o", orgName)
+	cliConnection.CliCommandWithoutTerminalOutput("create-org", orgName)
+	cliConnection.CliCommandWithoutTerminalOutput("target", "-o", orgName)
+	cliConnection.CliCommandWithoutTerminalOutput("target", "-o", orgName, "-s", spaceName)
+	cliConnection.CliCommandWithoutTerminalOutput("create-space", spaceName, "-o", orgName)
+	cliConnection.CliCommandWithoutTerminalOutput("target", "-o", orgName, "-s", spaceName)
 	fmt.Printf("Org %s and Space %s is now available and targeted", orgName, spaceName)
 
 	return

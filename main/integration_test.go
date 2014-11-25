@@ -62,10 +62,11 @@ var _ = Describe("Integration Test for Org Space plugin", func() {
 
 		It("creates the org and space then targets it", func() {
 			cfCmd := exec.Command("cf", "org-space", orgName, spaceName)
-			runCommand(cfCmd)
+			session := runCommand(cfCmd)
+			Expect(string(session.FullOutput())).To(ContainSubstring("Org testorg and Space testspace is now available and targeted"))
 
 			cfCmd = exec.Command("cf", "orgs")
-			session := runCommand(cfCmd)
+			session = runCommand(cfCmd)
 			Expect(string(session.FullOutput())).To(ContainSubstring(orgName))
 
 			cfCmd = exec.Command("cf", "spaces")
