@@ -38,32 +38,17 @@ func (c *OrgSpace) Run(cliConnection plugin.CliConnection, args []string) {
 
 	orgName := args[1]
 	spaceName := args[2]
-	cliConnection.CliCommand("target", "-o", orgName)
+	_, err := cliConnection.CliCommand("target", "-o", orgName)
+	if err != nil {
+		println(err.Error())
+	}
+
 	cliConnection.CliCommand("create-org", orgName)
 	cliConnection.CliCommand("target", "-o", orgName)
 	cliConnection.CliCommand("target", "-o", orgName, "-s", spaceName)
 	cliConnection.CliCommand("create-space", spaceName, "-o", orgName)
 	cliConnection.CliCommand("target", "-o", orgName, "-s", spaceName)
-	fmt.Print("Created org")
+	fmt.Printf("Org %s and Space %s is now available and targeted", orgName, spaceName)
+
 	return
-	// Invoke the cf command passed as the set of arguments
-	// after the first argument.
-	//
-	// Calls to plugin.CliCommand([]string) must be done after the invocation
-	// of plugin.Start() to ensure the environment is bootstrapped.
-
-	// The call to plugin.CliCommand() returns an error if the cli command
-	// returns a non-zero return code or panics. The output written by the CLI
-	// is returned in any case.
-	// if err != nil {
-	// 	fmt.Println("PLUGIN ERROR: Error from CliCommand: ", err)
-	// }
-
-	// // Print the output returned from the CLI command.
-	// fmt.Println("")
-	// fmt.Println("---------- Command output from the plugin ----------")
-	// for index, val := range output {
-	// 	fmt.Println("#", index, " value: ", val)
-	// }
-	// fmt.Println("----------              FIN               -----------")
 }

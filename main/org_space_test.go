@@ -45,11 +45,11 @@ var _ = Describe("CallOrgSpace", func() {
 					callCliCommandPlugin.Run(fakeCliConnection, []string{"org-space", "testorg", "testspace"})
 				})
 
-				Expect(output[0]).To(Equal("Created org"))
+				Expect(output[0]).To(Equal("Org testorg and Space testspace is now available and targeted"))
 			})
 
-			Context("when the org does not exist", func() {
-				It("call target org followed by create org, passing the org name argument", func() {
+			Context("when the org and space does not exist", func() {
+				It("calls the correct commands in sequence", func() {
 					io_helpers.CaptureOutput(func() {
 						callCliCommandPlugin.Run(fakeCliConnection, []string{"org-space", "testorg", "testspace"})
 					})
