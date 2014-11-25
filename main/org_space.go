@@ -1,8 +1,3 @@
-/**
-* This plugin is an example plugin that allows a user to call a cli-command
-* by typing `cf cli-command name-of-command args.....`. This plugin also prints
-* the output returned by the CLI when a cli-command is invoked.
- */
 package main
 
 import (
