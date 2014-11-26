@@ -1,0 +1,42 @@
+{
+	"ImportPath": "github.com/avade/org_space_cf_cli_plugin",
+	"GoVersion": "go1.3",
+	"Packages": [
+		"../..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/cloudfoundry/cli/plugin",
+			"Comment": "v6.7.0-78-gcde3852",
+			"Rev": "cde3852c1059f3600a41400c9d1f39839005a190"
+		},
+		{
+			"ImportPath": "github.com/cloudfoundry/cli/testhelpers/io",
+			"Comment": "v6.7.0-78-gcde3852",
+			"Rev": "cde3852c1059f3600a41400c9d1f39839005a190"
+		},
+		{
+			"ImportPath": "github.com/cloudfoundry/cli/testhelpers/plugin_builder",
+			"Comment": "v6.7.0-78-gcde3852",
+			"Rev": "cde3852c1059f3600a41400c9d1f39839005a190"
+		},
+		{
+			"ImportPath": "github.com/cloudfoundry/gunk/runner_support",
+			"Rev": "de79b69f590594db2b9771018784c55251d5e7e7"
+		},
+		{
+			"ImportPath": "github.com/onsi/ginkgo",
+			"Comment": "v1.1.0-28-g7d3d52b",
+			"Rev": "7d3d52b3a3a79d745c2a03ee81b5bc2086642201"
+		},
+		{
+			"ImportPath": "github.com/onsi/gomega",
+			"Comment": "v1.0-25-g85936b2",
+			"Rev": "85936b29809b7df066a8d839dd105e158e510264"
+		},
+		{
+			"ImportPath": "github.com/vito/cmdtest",
+			"Rev": "6d025fad5c9c2d65a0e827f4d636747226222eec"
+		}
+	]
+}
